@@ -69,6 +69,13 @@ public static class StringExtensions
         return true;
     }
 
+    public static bool IsAsciiLowerLetters(this string str) => IsAsciiLowerLetters((ReadOnlySpan<char>)str);
+    public static bool IsAsciiLowerLetters(this Span<char> chars) => IsAsciiLowerLetters((ReadOnlySpan<char>)chars);
+    public static bool IsAsciiLowerLetters(this ReadOnlySpan<char> str) => CharsAreBetween(str, 'a', 'z');
+    public static bool IsAsciiDigits(this string str) => IsAsciiDigits((ReadOnlySpan<char>)str);
+    public static bool IsAsciiDigits(this Span<char> chars) => IsAsciiDigits((ReadOnlySpan<char>)chars);
+    public static bool IsAsciiDigits(this ReadOnlySpan<char> str) => CharsAreBetween(str, '0', '9');
+
     public static bool CharsAreBetween(this string str, char minInclusive, char maxInclusive) => CharsAreBetween((ReadOnlySpan<char>)str, minInclusive, maxInclusive);
 
     public static bool CharsAreBetween(this ReadOnlySpan<char> chars, char minInclusive, char maxInclusive)
@@ -149,6 +156,6 @@ public static class StringExtensions
             }
         }
 
-        return false;
+        return true;
     }
 }
