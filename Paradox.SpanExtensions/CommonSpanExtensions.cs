@@ -1,8 +1,4 @@
-﻿using System.Diagnostics.Contracts;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-
-namespace Paradox.SpanExtensions;
+﻿namespace Paradox.SpanExtensions;
 
 public static class CommonSpanExtensions
 {
@@ -24,7 +20,7 @@ public static class CommonSpanExtensions
     {
         if (values.IsEmpty)
         {
-            throw new InvalidOperationException("Span contains no elements");
+            ThrowHelper.NoElements();
         }
 
         return MemoryMarshal.GetReference(values);
@@ -36,7 +32,7 @@ public static class CommonSpanExtensions
     {
         if (values.IsEmpty)
         {
-            throw new InvalidOperationException("Span contains no elements");
+            ThrowHelper.NoElements();
         }
 
         return Unsafe.Add(ref MemoryMarshal.GetReference(values), values.Length - 1);

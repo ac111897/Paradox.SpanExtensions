@@ -1,10 +1,27 @@
-﻿using System.Runtime.Intrinsics;
-
-namespace Paradox.SpanExtensions;
+﻿namespace Paradox.SpanExtensions;
 
 public static class MinSpanExtensions
 {
-    public static T? Min<T>(ReadOnlySpan<T> values)
+    [Pure]
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static T Min<T>(this ReadOnlySpan<T> values)
+        where T : struct
+    {
+        if (values.IsEmpty)
+        {
+            ThrowHelper.NoElements();
+        }
+
+        T min = default;
+
+        // TODO
+
+        return min;
+    }
+
+    [Pure]
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static T? MinOrDefault<T>(this ReadOnlySpan<T> values)
         where T : struct
     {
         if (values.IsEmpty)
@@ -13,8 +30,6 @@ public static class MinSpanExtensions
         }
 
         T min = default;
-
-        // TODO
 
         return min;
     }

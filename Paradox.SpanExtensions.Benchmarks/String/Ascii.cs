@@ -15,12 +15,18 @@ public class Ascii
     [Benchmark(Baseline = true)]
     public bool Vectorized()
     {
-        return StringExtensions.IsAscii(Input);
+        return AsciiExtensions.IsAscii(Input);
     }
 
     [Benchmark]
-    public bool Standard()
+    public bool Scalar()
     {
-        return Scalar.IsAscii(Input);
+        return StringImpl.ScalarAscii(Input);
+    }
+
+    [Benchmark]
+    public bool Vectorized_Ref()
+    {
+        return StringImpl.IsAscii(Input);
     }
 }

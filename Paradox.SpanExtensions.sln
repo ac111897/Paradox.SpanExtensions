@@ -5,7 +5,9 @@ VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paradox.SpanExtensions", "Paradox.SpanExtensions\Paradox.SpanExtensions.csproj", "{B548082F-BBFC-4A07-AC57-C2A3F62F154F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paradox.SpanExtensions.Benchmarks", "Paradox.SpanExtensions.Benchmarks\Paradox.SpanExtensions.Benchmarks.csproj", "{5DA12BA2-705F-4D6C-B608-15CFAFC5936A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paradox.SpanExtensions.Benchmarks", "Paradox.SpanExtensions.Benchmarks\Paradox.SpanExtensions.Benchmarks.csproj", "{5DA12BA2-705F-4D6C-B608-15CFAFC5936A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paradox.SpanExtensions.Tests", "Paradox.SpanExtensions.Tests\Paradox.SpanExtensions.Tests.csproj", "{D2B2C908-9577-42D3-B552-7FF3C04E328F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{5DA12BA2-705F-4D6C-B608-15CFAFC5936A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5DA12BA2-705F-4D6C-B608-15CFAFC5936A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5DA12BA2-705F-4D6C-B608-15CFAFC5936A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2B2C908-9577-42D3-B552-7FF3C04E328F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2B2C908-9577-42D3-B552-7FF3C04E328F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2B2C908-9577-42D3-B552-7FF3C04E328F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2B2C908-9577-42D3-B552-7FF3C04E328F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
