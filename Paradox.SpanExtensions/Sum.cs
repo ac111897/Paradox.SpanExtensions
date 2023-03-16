@@ -6,6 +6,7 @@ namespace Paradox.SpanExtensions;
 
 public static class SpanSumExtensions
 {
+    [Pure]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static T Sum<T>(this ReadOnlySpan<T> values) where T : struct, INumber<T>
     {
