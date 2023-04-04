@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paradox.SpanExtensions", "P
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paradox.SpanExtensions.Benchmarks", "Paradox.SpanExtensions.Benchmarks\Paradox.SpanExtensions.Benchmarks.csproj", "{5DA12BA2-705F-4D6C-B608-15CFAFC5936A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paradox.SpanExtensions.Tests", "Paradox.SpanExtensions.Tests\Paradox.SpanExtensions.Tests.csproj", "{D2B2C908-9577-42D3-B552-7FF3C04E328F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paradox.SpanExtensions.Tests", "Paradox.SpanExtensions.Tests\Paradox.SpanExtensions.Tests.csproj", "{D2B2C908-9577-42D3-B552-7FF3C04E328F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

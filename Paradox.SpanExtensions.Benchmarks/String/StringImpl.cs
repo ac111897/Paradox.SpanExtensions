@@ -31,7 +31,7 @@ public static class StringImpl
         {
             return false; // the string contains no characters at all so it can't be ASCII
         }
-
+            
         int i = 0;
 
         ref ushort reference = ref Unsafe.As<char, ushort>(ref MemoryMarshal.GetReference(str));

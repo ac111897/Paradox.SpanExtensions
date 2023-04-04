@@ -5,15 +5,28 @@
 /// </summary>
 public static class StringExtensions
 {
+    [Pure]
     public static bool IsAsciiLowerLetters(this string str) => IsAsciiLowerLetters((ReadOnlySpan<char>)str);
+
+    [Pure]
     public static bool IsAsciiLowerLetters(this Span<char> chars) => IsAsciiLowerLetters((ReadOnlySpan<char>)chars);
+
+    [Pure]
     public static bool IsAsciiLowerLetters(this ReadOnlySpan<char> str) => CharsAreBetween(str, 'a', 'z');
+
+    [Pure]
     public static bool IsAsciiDigits(this string str) => IsAsciiDigits((ReadOnlySpan<char>)str);
+
+    [Pure]
     public static bool IsAsciiDigits(this Span<char> chars) => IsAsciiDigits((ReadOnlySpan<char>)chars);
+
+    [Pure]
     public static bool IsAsciiDigits(this ReadOnlySpan<char> str) => CharsAreBetween(str, '0', '9');
 
+    [Pure]
     public static bool CharsAreBetween(this string str, char minInclusive, char maxInclusive) => CharsAreBetween((ReadOnlySpan<char>)str, minInclusive, maxInclusive);
 
+    [Pure]
     public static bool CharsAreBetween(this ReadOnlySpan<char> chars, char minInclusive, char maxInclusive)
     {
         if (chars.IsEmpty) return false;

@@ -30,6 +30,7 @@ public static class SpanSumExtensions
             for (; i <= values.Length - Vector256<T>.Count; i += Vector256<T>.Count)
             {
                 sum += Vector256.Sum(Vector256.Create(values.Slice(i, Vector256<T>.Count)));
+
             }
         }
 
