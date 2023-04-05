@@ -30,7 +30,7 @@ public static class CeilingExtensions
 
         if (typeof(T) == typeof(double) || typeof(T) == typeof(float)) // if the input is a primitive floating point process it in the fast path
         {
-            AcceleratedFloor(s);
+            AcceleratedCeiling(s);
         }
         else
         {
@@ -43,7 +43,7 @@ public static class CeilingExtensions
         }
     }
 
-    internal static void AcceleratedFloor<T>(this Span<T> s)
+    internal static void AcceleratedCeiling<T>(this Span<T> s)
         where T : struct, IFloatingPoint<T>
     {
         Debug.Assert(typeof(T) == typeof(double) || typeof(T) == typeof(float));
@@ -59,15 +59,16 @@ public static class CeilingExtensions
         {
             for (; i <= s.Length - Vector128<T>.Count; i += Vector128<T>.Count)
             {
-                Vector128<T> vector = Vector128.LoadUnsafe(ref Unsafe.Add(ref reference, i));
+                ref T current = ref Unsafe.Add(ref reference, i);
+                Vector128<T> vector = Vector128.LoadUnsafe(ref current);
 
                 if (typeof(T) == typeof(double))
                 {
-
+                    Vector128.Ceiling(vector.As<T, double>()).As<double, T>().StoreUnsafe(ref current);
                 }
                 else if (typeof(T) == typeof(float))
                 {
-
+                    Vector128.Floor(vector.As<T, float>()).As<float, T>().StoreUnsafe(ref current);
                 }
                 else
                 {
@@ -79,9 +80,12 @@ public static class CeilingExtensions
         {
             for (; i <= s.Length - Vector256<T>.Count; i += Vector256<T>.Count)
             {
+                ref T current = ref Unsafe.Add(ref reference, i);
+                Vector256<T> vector = Vector256.LoadUnsafe(ref current);
+
                 if (typeof(T) == typeof(double))
                 {
-
+                    
                 }
                 else if (typeof(T) == typeof(float))
                 {
