@@ -27,6 +27,28 @@ public static class AnyExtensions
         return false;
     }
 
+
+    [Pure]
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public unsafe static bool Any<T>(this ReadOnlySpan<T> s, delegate*<ref T, bool> predicate)
+    {
+        ArgumentNullException.ThrowIfNull(predicate);
+
+        if (s.IsEmpty) return false;
+
+        ref T start = ref MemoryMarshal.GetReference(s);
+
+        for (int i = 0; i  < s.Length; i++)
+        {
+            if (predicate(ref Unsafe.Add(ref start, i)))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     [Pure]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static bool Any<T>(this Span<T> s, Func<T, bool> predicate) => Any((ReadOnlySpan<T>)s, predicate);

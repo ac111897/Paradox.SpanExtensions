@@ -93,7 +93,7 @@ public static class AdvancedExtensions
         return ret;
     }
 
-    public static void FloorInPlace<T>(Span<T> s)
+    public static void FloorInPlace<T>(this Span<T> s)
         where T : struct, IFloatingPoint<T>
     {
         if (typeof(T) == typeof(double) || typeof(T) == typeof(float))

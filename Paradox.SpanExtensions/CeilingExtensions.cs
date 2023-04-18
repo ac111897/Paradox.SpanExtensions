@@ -43,7 +43,7 @@ public static class CeilingExtensions
         }
     }
 
-    internal static void AcceleratedCeiling<T>(this Span<T> s)
+    internal static void AcceleratedCeiling<T>(Span<T> s)
         where T : struct, IFloatingPoint<T>
     {
         Debug.Assert(typeof(T) == typeof(double) || typeof(T) == typeof(float));
@@ -60,6 +60,7 @@ public static class CeilingExtensions
             for (; i <= s.Length - Vector128<T>.Count; i += Vector128<T>.Count)
             {
                 ref T current = ref Unsafe.Add(ref reference, i);
+
                 Vector128<T> vector = Vector128.LoadUnsafe(ref current);
 
                 if (typeof(T) == typeof(double))
@@ -85,11 +86,11 @@ public static class CeilingExtensions
 
                 if (typeof(T) == typeof(double))
                 {
-                    
+                    Vector256.Ceiling(vector.As<T, double>()).As<double, T>().StoreUnsafe(ref current);
                 }
                 else if (typeof(T) == typeof(float))
                 {
-
+                    Vector256.Ceiling(vector.As<T, float>()).As<float, T>().StoreUnsafe(ref current);
                 }
                 else
                 {

@@ -27,7 +27,7 @@ public static class SqrtExtensions
         int i = 0;
         ref T reference = ref MemoryMarshal.GetReference(s);
 
-        if (!Vector128.IsHardwareAccelerated || s.Length < Vector128<T>.Count || Vector128<T>.IsSupported) // this guards against types that arent supported
+        if (!Vector128.IsHardwareAccelerated || s.Length < Vector128<T>.Count || !Vector128<T>.IsSupported) // this guards against types that arent supported
         {
             goto Scalar;
         }
